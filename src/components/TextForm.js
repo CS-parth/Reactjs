@@ -24,15 +24,15 @@ export default function TextForm(props) {
     // settext("new text"); 
     return (
         <>
-            <div className='container'>
+            <div className='container' style={{color: props.Mode==="light" ? "grey" : "white"}}>
                 <h1>{props.heading}</h1>
                 <div className="mb-3">
                 <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
-                <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+                <input type="email" className="form-control" style={{backgroundColor: props.Mode==="light" ? "white" : "grey"}} id="exampleFormControlInput1" placeholder="name@example.com"/>
                 </div>
                 <div className="mb-3">
                 <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
-                <textarea className="form-control" value={text} onChange={handleOnClick} id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea className="form-control" value={text} style={{backgroundColor: props.Mode==="light" ? "white" : "grey"}} onChange={handleOnClick} id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
                 <div className="btn btn-primary mx-2" onClick={ChangeToupper}>
                     Convert to upper-case
@@ -49,7 +49,7 @@ export default function TextForm(props) {
                 <p>{text.split(" ").length} 300 words and {text.length} characters</p>
                 <p>{0.008*text.split(" ").length} Minutes read</p>
                 <h2>Preview</h2>
-                <p>{text}</p>
+                <p>{text.length>0?text:"Enter something in the textbox to preview it here"}</p>
             </div>
         </>
   )
